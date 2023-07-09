@@ -1,0 +1,94 @@
+###
+GET http://localhost:9003/users HTTP/1.1
+
+###
+POST http://localhost:9003/users HTTP/1.1
+Content-Type: application/json
+
+{
+
+    "Nombre":"Mauricio",
+    "Apellidos":"Aguilar",
+    "Cedula":"124141",
+    "Username":"Prueba Cuatro",
+    "Email": "devinson@gmail.com",
+    "phone": "3154567890",
+    "Password":"r323",
+    "Rol":"2"   
+}
+
+###
+PUT http://localhost:9003/users/6485407f6e9256dbec828b6b HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "Nombre":"Mauricio",
+    "Apellidos":"Dorado",
+    "Cedula":"124141",
+    "Username":"Prueba Cuatro",
+    "Email": "devinson@gmail.com",
+    "phone": "3154567890",
+    "Password":"r34523523",
+    "Rol":"2" 
+   
+}
+
+### 
+DELETE http://localhost:9003/users/63922db755b5fe59c0d5e048 HTTP/1.1
+
+
+
+
+###
+POST http://localhost:9003/login HTTP/1.1
+Content-Type: application/json
+
+{
+ "Username":"prueba uno",
+ "Password":"lehr3456" 
+}
+
+
+###
+GET http://localhost:9003/cites HTTP/1.1
+
+###
+POST http://localhost:9003/cites HTTP/1.1
+Content-Type: application/json
+
+{
+    "Fecha":"2014-01-22",
+    "Nombre":"Otra",
+    "Apellidos":"Vez",
+    "Email": "devinson22@gmail.com",
+    "Phone": "3154567690"
+
+}
+
+
+
+###
+GET http://localhost:9003/historias HTTP/1.1
+
+
+###
+POST http://localhost:9003/historias HTTP/1.1
+Content-Type: application/json
+
+{
+    "Nombre": "Historia",
+    "Apellidos": "De",
+    "Cedula": "12412415",
+    "Edad": "40",
+    "Etnia": "Negro",
+    "Altura": "180",
+    "Peso": "100",
+    "Comoborbilidad": "Si",
+    "Alergias": "Si",
+    "Alcohol": "Si",
+    "Tabaquismo": "Si",
+    "Drogas": "Si",
+    "Medicamentos": "Si"
+
+}
