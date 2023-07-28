@@ -5,6 +5,7 @@ const cors=require('cors')
 const usuariosRoutes= require('./routes/usuariosRoutes')
 const citasRoutes = require('./routes/citasRoutes')
 const historiasRoutes = require('./routes/historiasRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 
 conectDB();
@@ -28,9 +29,10 @@ app.use(bodyParser.urlencoded({extended:true}))*/
 
 
 
-app.use('/',usuariosRoutes())
-app.use('/',citasRoutes())
-app.use('/',historiasRoutes())
+app.use('/api/',usuariosRoutes())
+app.use('/api/',citasRoutes())
+app.use('/api/',historiasRoutes())
+app.use('/api/',authRoutes())
 
 
 

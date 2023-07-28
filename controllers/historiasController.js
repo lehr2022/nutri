@@ -22,6 +22,7 @@ exports.add=async(req,res)=>{
         try{
             await historia.save()
             res.json({message:'new historia add'})
+            
         }catch(error){
         console.log(error)
         res.send(error)

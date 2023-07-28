@@ -48,7 +48,7 @@ exports.update=async(req,res)=>{
                 req.body,
                 {new:true}
             )
-            res.json({message:'user has been update'})
+            res.json({message:'cita has been update'})
         }catch(error){
         console.log(error)
         res.send(error)

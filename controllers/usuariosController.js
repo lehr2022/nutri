@@ -95,3 +95,29 @@ exports.login = async (req, res) => {
         next()
     }
 }
+
+
+
+///primera accion traer usaurio
+exports.findone = async (req, res) => {
+
+    try {
+        const colUsuarios = await usuarios.aggregate([
+            { 
+                $match: { 
+                    $expr: {
+                        $eq: [
+                            '$Username', req.params.username
+                        ]
+                    }
+                }
+            },
+
+          ])
+        
+        res.json(colUsuarios)
+    } catch (error) {
+        console.log(error)
+        res.send(error)
+    }
+}
