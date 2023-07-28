@@ -16,6 +16,6 @@ const historiasSchema = new Schema({
     Drogas: {type:String, Trim:true, lowercase:true},
     Medicamentos: {type:String, Trim:true, lowercase:true},
     
-})
+},{timestamps: true, versionKey:false,})
 
 module.exports=mongoose.model('historias',historiasSchema)

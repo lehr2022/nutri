@@ -8,13 +8,13 @@ const count = await rol.estimatedDocumentCount()
 
 if (count > 0) return;
 
-const values = await Promise.all([
-new rol({name:'user'}).save(),
-new rol({name:'moderator'}).save(),
-new rol({name:'admin'}).save(),
-])
 
-console.log(values)
+await new rol({name:'user'}).save(),
+await new rol({name:'moderator'}).save(),
+await new rol({name:'admin'}).save(),
+
+
+console.log(new rol)
 
 }catch(error){
     console.log(error)

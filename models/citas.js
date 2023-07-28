@@ -8,6 +8,6 @@ const citasSchema = new Schema({
     Email:{type:String, Trim:true,unique:true, lowercase:true},
     Phone: {type:Number},
     usuarios_ID:[{ type: Schema.Types.ObjectId, ref: "usuarios" }],
-})
+},{timestamps: true, versionKey:false,})
 
 module.exports=mongoose.model('citas',citasSchema)
