@@ -16,7 +16,7 @@ exports.signup=async(req, res, next) =>{
             const savedUser = await usuario.save()
 
             const token = jwt.sign({id: savedUser._id},"products-api",{expiresIn: 86400})
-            res.json(token)
+         
 
         }catch(error){
         console.log(error)

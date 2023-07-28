@@ -13,6 +13,7 @@ const usuariosSchema = new Schema({
     Password: {type:String},
     Rol: [{ref:"rol", type: Schema.Types.ObjectId}],
     Citas_ID:[{ type: Schema.Types.ObjectId, ref: "citas" }],
+    Historia:[{ref:"historias", type: Schema.Types.ObjectId}],
 },{timestamps: true, versionKey:false,}
 
 )

@@ -1,5 +1,6 @@
 const express=require('express')
 const conectDB=require('./config/bd')
+const createRoles = require('./libs/initialSetup')
 const bodyParser=require('body-parser')
 const cors=require('cors')
 const usuariosRoutes= require('./routes/usuariosRoutes')
@@ -11,6 +12,7 @@ const authRoutes = require('./routes/authRoutes')
 conectDB();
 
 const app=express()
+createRoles();
 
 app.use(cors())
 
