@@ -1,9 +1,10 @@
 const mongoose=require('mongoose')
 const Schema=mongoose.Schema
 
+
 const rolSchema = new Schema({
-    Nombre: {type:String},
+    name: {String},
     
-},{timestamps: true, versionKey:false,})
+},{versionKey:false,})
 
 module.exports=mongoose.model('rol',rolSchema)

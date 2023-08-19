@@ -1,4 +1,7 @@
 const mongoose=require('mongoose')
+mongoose.Promise=global.Promise
+
+
 const rol = require('../models/rol')
 
 const createRoles=async()=>{
@@ -8,13 +11,13 @@ const count = await rol.estimatedDocumentCount()
 
 if (count > 0) return;
 
+const values = await Promise.all([
+    new rol({name:"Otra"}).save(),
+    new rol({name: "moderator" }).save(),
+    new rol({name: "admin" }).save(),
+  ]);
 
-await new rol({name:'user'}).save(),
-await new rol({name:'moderator'}).save(),
-await new rol({name:'admin'}).save(),
-
-
-console.log(new rol)
+console.log(values)
 
 }catch(error){
     console.log(error)

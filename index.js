@@ -12,12 +12,13 @@ const authRoutes = require('./routes/authRoutes')
 conectDB();
 
 const app=express()
-createRoles();
+
 
 app.use(cors())
 
 app.use(express.json({ extended: true }));
 
+createRoles();
 
 
 
@@ -38,7 +39,7 @@ app.use('/api/',authRoutes())
 
 
 
-
 app.listen(9003,()=>{
     console.log('server listen in: 9003')
 })
+
