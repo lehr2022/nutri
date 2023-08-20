@@ -18,7 +18,7 @@ exports.list=async(req,res)=>{
 }
 
 
-///segunda accion ingresar todos
+///segunda accion ingresar todos (Este es el mismo SignUp)
 exports.add=async(req,res, next)=>{
 
     const {username, email, password, rol} = req.body;
@@ -44,7 +44,11 @@ const usuario=new usuarios({
             usuario.Rol = [rol._id];
         }
 
-        await usuario.save()
+   
+        const savedUser = await usuario.save()
+
+        const token = jwt.sign({id: savedUser._id},"products-api",{expiresIn: 86400})
+
         res.json({message:'new user add'})
     }catch(error){
     console.log(error)

@@ -39,8 +39,20 @@ exports.signup=async(req, res, next) =>{
 
 exports.signin=async(req,res) =>{
 
-    //const signin = new usuarios(req.body)
-    res.json("signin")
+ 
+    const userFound = await usuarios.findOne({Email:req.body.Email}).populate("Rol");
+
+    if (!userFound) return res.json({message:"User not found"});
+
+    const matchPassword = await usuarios.comparePassword(req.body.Password, userFound.Password);
+
+    if(!matchPassword) return res.json({message:"Invalid PassWord"});
+
+    const token = jwt.sign({id: userFound._id},"products-api",{expiresIn: 86400})
+    console.log("user found")
+    res.json({token})
+
+    
    
        
 }
