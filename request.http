@@ -7,14 +7,14 @@ Content-Type: application/json
 
 {
 
-    "Nombre":"Mauricio",
-    "Apellidos":"Aguilar",
-    "Cedula":"124141",
-    "Username":"Prueba Cuatro",
-    "Email": "devinson@gmail.com",
-    "phone": "3154567890",
-    "Password":"r323",
-    "Rol":"2"   
+    "Name":"Purifica",
+    "Surname":"Aqui es",
+    "Cedula":"1241415354646",
+    "Username":"Prueba 19",
+    "Email": "devinson33rte434@gmail.com",
+    "Phone": "3158934310",
+    "Password":"ert4t4@wr"
+     
 }
 
 ###
@@ -23,8 +23,8 @@ Content-Type: application/json
 
 
 {
-    "Nombre":"Mauricio",
-    "Apellidos":"Dorado",
+    "Name":"Mauricio",
+    "Surname":"Dorado",
     "Cedula":"124141",
     "Username":"Prueba Cuatro",
     "Email": "devinson@gmail.com",
@@ -101,9 +101,10 @@ Content-Type: application/json
 {
 
     
-    "Username":"Prueba 6675",
-    "Email": "devinsodfhgwdtetn@gmail.com",
-    "Password":"r34523dfgdfg523"
+    "Username":"Prueba 7070",
+    "Email": "devinsodfh5745745gwdtetn@gmail.com",
+    "Password":"hghegerg"
+   
   
      
 }

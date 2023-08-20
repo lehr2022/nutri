@@ -1,5 +1,6 @@
 const usuarios = require('../models/usuarios')
 const jwt=require('jsonwebtoken')
+const role = require('../models/rol')
 
 
 exports.signup=async(req, res, next) =>{
@@ -13,6 +14,16 @@ exports.signup=async(req, res, next) =>{
         Password: await usuarios.encryptPassword(req.body.Password)})
 
         try{
+
+            if (rol){
+                const foundRol = await role.find({name: {$in: rol}})
+                usuario.Rol = foundRol.map(rol => rol._id)
+            }else{
+                const rol = await role.findOne({ name: "user" });
+                usuario.Rol = [rol._id];
+            }
+
+
             const savedUser = await usuario.save()
 
             const token = jwt.sign({id: savedUser._id},"products-api",{expiresIn: 86400})

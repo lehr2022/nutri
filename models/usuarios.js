@@ -4,8 +4,8 @@ const bcrypt=require('bcrypt')
 //import bcrypt from 'bcryptjs'
 
 const usuariosSchema = new Schema({
-    Nombre: {type:String, Trim:true, lowercase:true},
-    Apellidos: {type:String, Trim:true, lowercase:true},
+    Name: {type:String, Trim:true, lowercase:true},
+    Surname: {type:String, Trim:true, lowercase:true},
     Cedula: {type:Number},
     Username: {type:String, Trim:true, lowercase:true, unique: true},
     Email:{type:String, Trim:true,unique:true, lowercase:true},

@@ -1,5 +1,7 @@
 
 const usuarios = require('../models/usuarios')
+const jwt=require('jsonwebtoken')
+const role = require('../models/rol')
 
 
 ///primera accion listar todos
@@ -17,9 +19,31 @@ exports.list=async(req,res)=>{
 
 
 ///segunda accion ingresar todos
-exports.add=async(req,res)=>{
-const usuario=new usuarios(req.body)
+exports.add=async(req,res, next)=>{
+
+    const {username, email, password, rol} = req.body;
+
+const usuario=new usuarios({
+    Name: req.body.Name,
+    Surname: req.body.Surname,
+    Cedula: req.body.Cedula,
+    Username:req.body.Username,
+    Email:req.body.Email,
+    Phone:req.body.Phone,
+    Password: await usuarios.encryptPassword(req.body.Password)},
+    
+
+)
     try{
+
+        if (rol){
+            const foundRol = await role.find({name: {$in: rol}})
+            usuario.Rol = foundRol.map(rol => rol._id)
+        }else{
+            const rol = await role.findOne({ name: "user" });
+            usuario.Rol = [rol._id];
+        }
+
         await usuario.save()
         res.json({message:'new user add'})
     }catch(error){

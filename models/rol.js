@@ -4,7 +4,6 @@ const Schema=mongoose.Schema
 
 const rolSchema = new Schema({
     name: {String},
-    
-},{versionKey:false,})
+    },{versionKey:false, timestamps: true})
 
 module.exports=mongoose.model('rol',rolSchema)
