@@ -7,13 +7,14 @@ Content-Type: application/json
 
 {
 
-    "Name":"Purifica",
-    "Surname":"Aqui es",
-    "Cedula":"1241415354646",
-    "Username":"Prueba 19",
-    "Email": "devinson33rte434@gmail.com",
-    "Phone": "3158934310",
-    "Password":"ert4t4@wr"
+    "Name":"Devinson",
+    "Surname":"DEsarrollador",
+    "Cedula":"1017221241",
+    "Username":"admin",
+    "Email": "admin@gmail.com",
+    "Phone": "3043850194",
+    "Password":"admin123",
+    "Rol":"admin"
      
 }
 
@@ -52,6 +53,10 @@ Content-Type: application/json
 
 ###
 GET http://localhost:9003/api/cites HTTP/1.1
+Content-Type: application/json
+
+
+
 
 ###
 POST http://localhost:9003/api/cites HTTP/1.1
@@ -111,7 +116,7 @@ POST http://localhost:9003/api/signin HTTP/1.1
 Content-Type: application/json
 
 {
-    "Email": "devinson33rte434@gmail.com",
-    "Password":"ert4t4@wr"
+    "Email": "admin@gmail.com",
+    "Password":"admin123"
 }
   
