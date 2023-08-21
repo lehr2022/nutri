@@ -2,20 +2,22 @@ const express=require('express')
 const router=express.Router()
 const usuariosController=require('../controllers/usuariosController')
 const checkExistingUser=require('../middlewares/verifySignup')
+const verifyToken = require('../middlewares/authjwt')
+const isAdmin = require('../middlewares/adminrol')
 
 module.exports=()=>{
     //llamado get users
-    router.get('/users',usuariosController.list)
+    router.get('/users',verifyToken,isAdmin,usuariosController.list)
 
     //llamado post users
     router.post('/users',checkExistingUser, usuariosController.add)
 
     //llamado put users
-    router.put('/users/:id',usuariosController.update)
+    router.put('/users/:id',verifyToken,isAdmin,usuariosController.update)
 
     
     //llamado delete users
-    router.delete('/users/:id',usuariosController.delete)
+    router.delete('/users/:id',verifyToken,isAdmin,usuariosController.delete)
 
     
     //llamado post login
