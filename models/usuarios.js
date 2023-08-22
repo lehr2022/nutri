@@ -7,12 +7,12 @@ const usuariosSchema = new Schema({
     Name: {type:String, Trim:true, lowercase:true},
     Surname: {type:String, Trim:true, lowercase:true},
     Cedula: {type:Number},
-    Username: {type:String, Trim:true, lowercase:true, unique: true},
-    Email:{type:String, Trim:true,unique:true, lowercase:true},
+    Username: {type:String, Trim:true, lowercase:true},
+    Email:{type:String, Trim:true, lowercase:true},
     Phone: {type:Number},
     Password: {type:String},
     Rol: [{ref:"rol", type: Schema.Types.ObjectId}],
-    Citas_ID:[{ type: Schema.Types.ObjectId, ref: "citas" }],
+    Citas:[{ type: Schema.Types.ObjectId, ref: "citas" }],
     Historia:[{ref:"historias", type: Schema.Types.ObjectId}],
 },{timestamps: true, versionKey:false,}
 

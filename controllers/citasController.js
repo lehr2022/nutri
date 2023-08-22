@@ -1,5 +1,6 @@
 
 const citas = require('../models/citas')
+const usuarios = require('../models/usuarios')
 
 
 ///primera accion listar todos
@@ -19,16 +20,25 @@ exports.list=async(req,res)=>{
 }
 
 ///segunda accion ingresar todos
-exports.add=async(req,res)=>{
+exports.add=async(req,res,next)=>{
 
+    const {fecha, cedula, usuario} = req.body;
 
- 
-    const cita=new citas(req.body)
-    
+    const cita=new citas({
+        Fecha: req.body.Fecha,
+        Cedula: req.body.Cedula,
+         })
     try{
-            await cita.save()
-            res.json({message:'new cite add'})
-        
+        const userFound = await usuarios.findOne({Cedula:req.body.Cedula})
+
+        if(userFound != null){
+        cita.Usuario = [userFound._id];
+        const savedCita = await cita.save();
+        res.json({message:'new cite add'});
+        }else{
+            res.json({message:"Verifica el numero de cedula"})
+        }
+
         }catch(error){
         console.log(error)
         res.send(error)
