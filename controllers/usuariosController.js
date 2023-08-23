@@ -103,7 +103,7 @@ exports.login = async (req, res) => {
     const login = new usuarios(req.body)
     try {
         const usuario = await usuarios.find({
-            Username: req.body.Username,
+            Email: req.body.Email,
             Password: req.body.Password,
         })
 
@@ -111,7 +111,8 @@ exports.login = async (req, res) => {
             const sesion = await usuarios.find({
                 _id: usuario[0]._id
             })
-            res.json({Username:sesion[0].Username, Nombre:sesion[0].Nombre})
+            const token = jwt.sign({id: usuario[0]._id},"products-api",{expiresIn: 86400})
+            res.json({Name: sesion[0].Name, Surname: sesion[0].Surname, Cedula: sesion[0].Cedula, Username: sesion[0].Username, Email: sesion[0].Email, Phone: sesion[0].Phone, Password: sesion[0].Password, token })
         }else{
             res.json({message:"Usuario y contraseña invalidos"})
         }

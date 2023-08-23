@@ -42,15 +42,19 @@ exports.signin=async(req,res) =>{
  
     const userFound = await usuarios.findOne({Email:req.body.Email}).populate("Rol");
 
-    if (!userFound) return res.json({message:"User not found"});
+    if (!userFound) return res.json({message:"Usuario no existe"});
 
     const matchPassword = await usuarios.comparePassword(req.body.Password, userFound.Password);
 
-    if(!matchPassword) return res.json({message:"Invalid PassWord"});
+    if(!matchPassword) return res.json({message:"Contraseña invalida"});
 
     const token = jwt.sign({id: userFound._id},"products-api",{expiresIn: 86400})
     console.log("user found")
-    res.json({token})
+
+
+ 
+    res.json({Name: userFound.Name, Surname: userFound.Surname, Cedula: userFound.Cedula, Username: userFound.Username, Email: userFound.Email, Phone: userFound.Phone, Password: userFound.Password, token })   
+   
 
     
    
