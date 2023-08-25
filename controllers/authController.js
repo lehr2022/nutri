@@ -42,7 +42,7 @@ exports.signin=async(req,res) =>{
  
     const userFound = await usuarios.findOne({Email:req.body.Email}).populate("Rol");
 
-    if (!userFound) return res.json({message:"Usuario no existe"});
+    if (!userFound) return res.json({message:"Correo electronico no registrado"});
 
     const matchPassword = await usuarios.comparePassword(req.body.Password, userFound.Password);
 
