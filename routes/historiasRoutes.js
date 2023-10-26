@@ -7,7 +7,7 @@ const isAdmin = require('../middlewares/adminrol')
 
 module.exports=()=>{
     //llamado get users
-    router.get('/historias',verifyToken,isUser,historiasController.list)
+    router.get('/historias',/*verifyToken,isUser,*/historiasController.list)
 
     //llamado post users
     router.post('/historias',/*verifyToken,isUser,*/historiasController.add)
